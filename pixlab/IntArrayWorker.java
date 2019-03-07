@@ -27,11 +27,20 @@ public class IntArrayWorker
     }
     return total;
   }
+  public int getLargest()
+  {
+  int largest= matrix[0][0];
+  for (int[] row : matrix)
+  {
+      for (int pixel : row)
+      {
+          if(pixel>largest)
+            largest=pixel;
+        }
+    }
+  return largest;
+ }
   
-  /**
-   * Method to return the total using a nested for-each loop
-   * @return the total of the values in the array
-   */
   public int getTotalNested()
   {
     int total = 0;
@@ -44,7 +53,13 @@ public class IntArrayWorker
     }
     return total;
   }
-  
+  public int getColTotal(int n)
+  {
+      int total=0;
+      for (int i=0; i<matrix.length; i++)
+        total+=matrix[i][n];
+      return total;
+    }
   /**
    * Method to fill with an increasing count
    */
