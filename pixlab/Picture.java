@@ -97,6 +97,74 @@ public class Picture extends SimplePicture
       }
     }
   }
+    public void zeroGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+   public void zeroRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+      }
+    }
+  }
+  public void KeepOnlyRed()
+  {
+     zeroBlue();
+     zeroGreen();
+    }
+  public void KeepOnlyBlue()
+  {
+     zeroGreen();
+     zeroRed();
+    }
+  public void KeepOnlyGreen()
+  {
+      zeroRed();
+      zeroBlue();
+    }
+  public void Negate()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(255-pixelObj.getRed());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setBlue(255-pixelObj.getBlue());
+        
+      }
+    } 
+    }
+    public void Grayscale()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int grayscaleaverage=(pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue())/3;
+        pixelObj.setRed(grayscaleaverage);
+        pixelObj.setGreen(grayscaleaverage);
+        pixelObj.setBlue(grayscaleaverage);
+        
+      }
+    } 
+    }
+  
   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
@@ -141,6 +209,7 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -234,7 +303,31 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+   public void copy(Picture fromPic, 
+                 int startRow, int startCol,
+                 int fSR,      int fSC,
+                 int fER,      int fEC)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = fSR, toRow = startRow; 
+         fromRow < fER &&
+         toRow < toPixels.length; 
+         fromRow++, toRow++)
+    {
+      for (int fromCol = fSC, toCol = startCol; 
+           fromCol < fEC &&
+           toCol < toPixels[0].length;  
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 

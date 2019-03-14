@@ -16,7 +16,34 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
-  
+    public static void testZeroRed()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.zeroRed();
+    beach.explore();
+  }
+    public static void testZeroGreen()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.zeroGreen();
+    beach.explore();
+  }
+   public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.Negate();
+    beach.explore();
+  }
+  public static void testGrayscale()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.Grayscale();
+    beach.explore();
+  }
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -42,6 +69,13 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
+  public static void testCopy()
+  {
+   Picture ocean= new Picture("beach.jpg");
+   Picture daddy= new Picture("snowman.jpg");
+   ocean.copy(daddy,10,10,60,160,180,230);
+   ocean.explore();
+    }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
@@ -58,20 +92,20 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
+    //testZeroBlue(); //done
+    //testKeepOnlyBlue(); //done
+    //testKeepOnlyRed(); //done
+    //testKeepOnlyGreen(); //done
+    //testNegate(); //done   
+    //testGrayscale(); //done
     //testFixUnderwater();
     //testMirrorVertical();
-    //testMirrorTemple();
+    //testMirrorTemple(); //done
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+    // testCopy(); //done
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
