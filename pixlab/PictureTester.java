@@ -52,15 +52,42 @@ public class PictureTester
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
-  
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  public static void testMirrorHorizontal()
+  {
+    Picture redMotorcycle = new Picture("redMotorcycle.jpg");
+    redMotorcycle.explore();
+    redMotorcycle.mirrorHorizontal();
+    redMotorcycle.explore();
+  }
+    public static void testMirrorHorizontalBotToTop()
+  {
+    Picture redMotorcycle = new Picture("redMotorcycle.jpg");
+    redMotorcycle.explore();
+    redMotorcycle.mirrorHorizontalBotToTop();
+    redMotorcycle.explore();
+  }
+  public static void testMirrorDiagonal()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
+  }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
     Picture temple = new Picture("temple.jpg");
     temple.explore();
     temple.mirrorTemple();
-    temple.explore();
-  }
+    temple.explore(); 
+    }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -99,11 +126,14 @@ public class PictureTester
     //testNegate(); //done   
     //testGrayscale(); //done
     //testFixUnderwater();
-    //testMirrorVertical();
+    //testMirrorVertical(); //done
+    //testMirrorVerticalRightToLeft(); //done
+    //testMirrorHorizontal(); //done
+    //testMirrorHorizontalBotToTop(); //done
     //testMirrorTemple(); //done
     //testMirrorArms();
     //testMirrorGull();
-    //testMirrorDiagonal();
+    //testMirrorDiagonal(); //done
     //testCollage();
     // testCopy(); //done
     //testEdgeDetection();
